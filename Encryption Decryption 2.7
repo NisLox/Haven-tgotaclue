@@ -1,0 +1,56 @@
+from __future__ import print_function
+
+
+startprog = str.upper(raw_input('start encryption?'))
+
+mainloop = 0
+ 
+ 
+if startprog in ('Y'):
+    while mainloop == 0:
+     type = ''   
+     type = str.upper(raw_input('(E)ncrypt or (D)ecrypt? -F to end program'))
+     if type in ('E'):
+         
+        print('enter message')
+        num = 5
+        
+        passcode = raw_input()
+        
+ 
+        for l in passcode:
+            print (chr(ord(l) + num), end = '')
+
+            if num > 0:
+                num = num - 8
+                
+            if num <= 0:
+                num = num + 12
+            
+            
+ 
+             
+     print('')
+     if type in ('D'):
+      num = 5
+ 
+      key = raw_input('''please enter message to decrypt (be careful to make sure spaces are in correct location)
+                 ''') 
+     
+      for l in key:
+ 
+         
+         print (chr(ord(l) - num), end = '')
+
+         if num > 0:
+                num = num - 8
+        
+         if num <= 0:
+                num = num + 12
+          
+     print('')
+     if type in ('F'):
+         mainloop = 1
+     
+else:
+    print('ending program')
