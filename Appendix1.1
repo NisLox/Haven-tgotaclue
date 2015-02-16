@@ -1,0 +1,18 @@
+plaintext = "VA RFFRAPR BIRE N CREVBQ BS GVZR FRIRENY FUVCF UNQ RAPBHAGRERQ NA RABEZBHF GUVAT NG FRN N YBAT FCVAQYR-FUNCRQ BOWRPG FBZRGVZRF TVIVAT BSS N CUBFCUBERFPRAG TYBJ VASVAVGRYL OVTTRE NAQ SNFGRE GUNA NAL JUNYR"
+
+plaintext = plaintext.lower()
+
+cipher = ""
+
+for letter in plaintext:
+    if letter == " ":
+        cipher += letter
+    else:
+        value = ord(letter)
+        value -= 97
+        value -= 13
+        value %= 26
+        value += 97
+        cipher += chr(value)
+
+print cipher
