@@ -2,26 +2,26 @@ startprog = str.upper(input('start encryption?'))
  
 mainloop = 0
  
- 
+ #start of program
 if startprog in ('Y'):
     while mainloop == 0:
      type = ''   
+     #start menu
      type = str.upper(input('(E)ncrypt or (D)ecrypt? -F to end program'))
      if type in ('E'):
          
+         
+         #encryption process
         print('enter message')
         num = 5
-        passing = []
         passcode = input()
-        loop = 0
  
         for l in passcode:
             print (chr(ord(l) + num), end='')
-            #passing.append(chr(ord(l) + num))
             num = num + 21
-            #loop = loop + 1
+            
  
-             
+             #decryption process
      print('')
      if type in ('D'):
       num = 5
@@ -33,7 +33,6 @@ if startprog in ('Y'):
  
          
          print (chr(ord(l) - num), end='')
-         #loop = loop - 1
          num = num + 21
           
      print('')
