@@ -1,5 +1,10 @@
+import enchant
 from collections import OrderedDict
 from collections import Counter
+
+d = enchant.Dict("en_us")
+
+
 
 line = "-----------------------------------------------------------"
 
@@ -26,3 +31,6 @@ a = list(new)
 b = Counter(new)
 print b
 print line
+print new
+hehe = d.check(new)
+print "The spelling is: " + (str(hehe))
