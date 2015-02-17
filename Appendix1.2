@@ -1,0 +1,26 @@
+plaintext = "AS HSPLTUI BPBUSL HRAMU DHE LTIPFCT LTU CRHEE HSN THN KFBWUN RACTLRV NPDS ASLP LTU RPPOASC CRHEE IPPB LTU ZUIV XAIEL LTASC ETU NAN DHE LP RPPO DTULTUI LTUIU DHE H XAIU AS LTU XAIUWRHMU HSN ETU DHE JFALU WRUHEUN LP XASN LTHL LTUIU DHE H IUHR PSU YRHGASC HDHV HE YIACTLRV HE LTU PSU ETU THN RUXL YUTASN"
+
+freq = {}
+
+for letter in plaintext:
+    count = freq.get(letter, 0)
+    freq[letter] = count + 1
+
+
+#print sorted(freq.values())
+
+for key, value in sorted(freq.iteritems(), key=lambda (key, value): (value, key)):
+    print (key, value)
+
+        
+#for key,item in freq.iteritems():
+#    print "Key {0} Count {1}".format(key, item)
+
+#for key, value in sorted(freq.items()):
+#    print(key, value)
+
+
+
+
+
+# Shift / Decypherr part
