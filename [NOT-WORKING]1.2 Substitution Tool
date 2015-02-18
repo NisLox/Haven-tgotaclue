@@ -1,11 +1,11 @@
-import re
 import enchant
+import re
 from collections import OrderedDict
 from collections import Counter
-import collections
 
 d = enchant.Dict("en_us")
-common = ["e, t, a, o, i, n, s, h, r, d, l, u, c, m, w, f, y, g, p, b, v, k, x, j, q, z"]
+
+
 line = "-----------------------------------------------------------"
 
 def sortCipher():
@@ -26,26 +26,19 @@ def sortCipher():
     return new
 
 new = sortCipher()
+
+b = Counter(new)
+print b
+print line
 print new
-
-#letterdict={}#Letter Frequency
-#for letter in new:
-#    letterdict[letter] = 0
-#for letter in new:
-#    letterdict[letter] += 1
-#print letterdict.sort()
-
-
-letters = collections.defaultdict(int)
-for letter in new:
-    letters[letter] += 1
-print letters.sort()
-
-
-wordList = re.sub("[^\w]", " ", new).split()#Puts it in a list
+wordList = re.sub("[^\w]", " ", new).split()
 
 for i in range(len(wordList)):
-    spell = d.check(wordList[i])
+    hehe = d.check(wordList[i])
 
-print "The spelling is: " + (str(spell))
-print line
+print "The spelling is: " + (str(hehe))
+
+makeList = list(b.elements())
+
+common = Counter(makeList).most_common(10)
+print common
