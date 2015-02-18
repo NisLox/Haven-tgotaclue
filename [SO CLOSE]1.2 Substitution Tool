@@ -46,11 +46,9 @@ common = Counter(makeList).most_common(6) #Shows most popular letters used
 trial = str(common).strip('[]') #Changes to string and removes []
 print trial
 
-line = re.sub("[!@ '(),' '1234567890]", '', trial) #Removes numbers and the space
-print line
+lines = re.sub("[!@ '(),' '1234567890]", '', trial) #Removes numbers and the space
 
-space = " ".join(line[i:i+1] for i in range(0, len(line), 1)) #adds space inbetween each character
-print space
+space = " ".join(lines[i:i+1] for i in range(0, len(lines), 1)) #adds space inbetween each character
 
 redo = space.split() #puts it into list
 print redo
