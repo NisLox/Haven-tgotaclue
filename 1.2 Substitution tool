@@ -1,9 +1,9 @@
 import enchant
+import re
 from collections import OrderedDict
 from collections import Counter
 
 d = enchant.Dict("en_us")
-
 
 
 line = "-----------------------------------------------------------"
@@ -27,10 +27,14 @@ def sortCipher():
 
 new = sortCipher()
 
-a = list(new)
 b = Counter(new)
 print b
 print line
 print new
-hehe = d.check(new)
+wordList = re.sub("[^\w]", " ", new).split()
+
+for i in range(len(wordList)):
+    hehe = d.check(wordList[i])
+
 print "The spelling is: " + (str(hehe))
+print wordList
