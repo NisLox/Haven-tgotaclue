@@ -1,16 +1,15 @@
-plaintext = "AS HSPLTUI BPBUSL HRAMU DHE LTIPFCT LTU CRHEE HSN THN KFBWUN RACTLRV NPDS ASLP LTU RPPOASC CRHEE IPPB LTU ZUIV XAIEL LTASC ETU NAN DHE LP RPPO DTULTUI LTUIU DHE H XAIU AS LTU XAIUWRHMU HSN ETU DHE JFALU WRUHEUN LP XASN LTHL LTUIU DHE H IUHR PSU YRHGASC HDHV HE YIACTLRV HE LTU PSU ETU THN RUXL YUTASN"
+#Letter Freqency part
+def letterFreq():
+    plaintext = "AS HSPLTUI BPBUSL HRAMU DHE LTIPFCT LTU CRHEE HSN THN KFBWUN RACTLRV NPDS ASLP LTU RPPOASC CRHEE IPPB LTU ZUIV XAIEL LTASC ETU NAN DHE LP RPPO DTULTUI LTUIU DHE H XAIU AS LTU XAIUWRHMU HSN ETU DHE JFALU WRUHEUN LP XASN LTHL LTUIU DHE H IUHR PSU YRHGASC HDHV HE YIACTLRV HE LTU PSU ETU THN RUXL YUTASN"
 
-freq = {}
+    freq = {}
 
-for letter in plaintext:
-    count = freq.get(letter, 0)
-    freq[letter] = count + 1
+    for letter in plaintext:
+        count = freq.get(letter, 0)
+        freq[letter] = count + 1
 
-
-#print sorted(freq.values())
-
-for key, value in sorted(freq.iteritems(), key=lambda (key, value): (value, key)):
-    print (key, value)
+    for key, value in reversed(sorted(freq.iteritems(), key=lambda (value, key): (key, value))):
+        print (key, value)
 
         
 #for key,item in freq.iteritems():
@@ -21,6 +20,44 @@ for key, value in sorted(freq.iteritems(), key=lambda (key, value): (value, key)
 
 
 
-
-
 # Shift / Decypherr part
+def subCipher():
+    plaintext = "AS HSPLTUI BPBUSL HRAMU DHE LTIPFCT LTU CRHEE HSN THN KFBWUN RACTLRV NPDS ASLP LTU RPPOASC CRHEE IPPB LTU ZUIV XAIEL LTASC ETU NAN DHE LP RPPO DTULTUI LTUIU DHE H XAIU AS LTU XAIUWRHMU HSN ETU DHE JFALU WRUHEUN LP XASN LTHL LTUIU DHE H IUHR PSU YRHGASC HDHV HE YIACTLRV HE LTU PSU ETU THN RUXL YUTASN"
+
+    subDict = {" ":" ",
+               "a":"",
+               "b":"",
+               "c":"",
+               "d":"",
+               "e":"",
+               "f":"",
+               "g":"",
+               "h":"",
+               "i":"",
+               "j":"",
+               "k":"",
+               "l":"",
+               "m":"",
+               "n":"",
+               "o":"",
+               "p":"",
+               "q":"",
+               "r":"",
+               "s":"",
+               "t":"",
+               "u":"",
+               "v":"",
+               "w":"",
+               "x":"",
+               "y":"",
+               "z":""}
+
+    temp = {}
+    
+    for key,value in subDict.iteritems():
+        temp[value] = key
+
+    for letter in plaintext:
+
+#letterFreq()
+#subCipher()
