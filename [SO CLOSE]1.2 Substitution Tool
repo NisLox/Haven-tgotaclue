@@ -1,5 +1,6 @@
 import enchant
 import re
+import string
 from collections import OrderedDict
 from collections import Counter
 
@@ -9,7 +10,82 @@ let = ["e, t, a, o, i, n"]
 
 line = "-----------------------------------------------------------"
 
-def sortCipher():
+def returnMenu():
+    reply = raw_input("Do you want to go back to the Menu? [y/n]: ")
+
+    if reply == "N":
+        raise SystemExit
+    elif reply == "Y":
+        amazingMenu()
+    elif reply == "n":
+        raise SystemExit
+    elif reply == "y":
+        amazingMenu()
+    return
+
+def cipher():
+    
+    message = raw_input("Please write the message you wish to encipher: ")
+    message1 = input("how much do you want to shift it by? ")
+
+    cipher = ""
+#   
+    alphabet = string.ascii_lowercase
+
+    for a in message:
+
+        cipher = cipher + alphabet[((alphabet.index(a) + message1) % 26)]
+
+    print cipher
+    
+def decipher():
+    
+    message = raw_input("Please write the message you wish to decipher: ")
+    message1 = input("how much do you want to shift it back by? ")
+
+    cipher = ""
+#   
+    alphabet = string.ascii_lowercase
+
+    for a in message:
+
+        cipher = cipher + alphabet[((alphabet.index(a) + 26 - message1) % 26)]
+
+    print cipher 
+
+"""def manualDecipher():
+    print line
+    input = raw_input("Please input the cipher: ")#human input
+    print " "
+    nondupe = "".join(OrderedDict.fromkeys(input))#removes duplicate characters
+    print "Cipher characters: " + nondupe #
+    print " "
+    new = input #Init replacement
+    s = list(nondupe) #makes list of nondupe chars
+    p = [] # empty list
+    for i in range(len(s)):
+        u = raw_input("What would you like to change " + s[i] + " to? ") #s[i] asking what would you like to change each character to
+        print line
+        p.append(u) 
+        print p
+        new = new.replace(s[i], u) #replaces old chars with new chars
+        print input, " -- ", new
+        print line
+    return new
+
+new = manualDecipher()
+
+print "The Deciphered word is: " + new
+wordList = re.sub("[^\w]", " ", new).split()
+
+for i in range(len(wordList)):#Spell Check
+    hehe = d.check(wordList[i])#Spell Check
+
+print "The spelling is: " + (str(hehe)) #Spell Check
+
+print line
+"""
+def automaticDecipher():
     input = raw_input("Please input the cipher: ")#human input
     nondupe = "".join(OrderedDict.fromkeys(input))#removes duplicate characters
     print "Cipher characters: " + nondupe #
@@ -26,7 +102,7 @@ def sortCipher():
         print line
     return new
 
-new = sortCipher()
+new = automaticDecipher()
 
 b = Counter(new) #Counts how many of each char there is in NEW
 print b
@@ -41,24 +117,65 @@ print "The spelling is: " + (str(hehe)) #Spell Check
 
 makeList = list(b.elements()) #makes list of all letters used
 
-common = Counter(makeList).most_common(6) #Shows most popular letters used
+common = Counter(makeList).most_common(7) #Shows most popular letters used
 
 trial = str(common).strip('[]') #Changes to string and removes []
 print trial
 
 lines = re.sub("[!@ '(),' '1234567890]", '', trial) #Removes numbers and the space
-
 space = " ".join(lines[i:i+1] for i in range(0, len(lines), 1)) #adds space inbetween each character
-
 redo = space.split() #puts it into list
 print redo
 
-"""mystring = "zxccv zvp bnx gvk ivtbg" """#Trying to automate letter swaps
-"""print mystring
+"""mystring = new #Trying to automate letter swaps
+print mystring
 
 for word in redo:
     index = redo.index(word)
 
     mystring = mystring.replace(redo[index], let[index])
 
-print mystring"""
+print mystring
+"""
+
+def amazingMenu():
+    
+    print (""" DICKS """)
+
+    print (35 * '-')
+    print ("   \tM A I N - M E N U")
+    print (35 * '-')
+    print ("\t1. manualDecipher")
+    print ("\t2. automaticDecipher")
+    print ("\t3. cipher")
+    print ("\t4. decipher")
+    print ("\t5. Exit program")
+    print (35 * '-')
+
+    choice = input('Enter your choice [1-5] : ')
+    
+        
+    choice = int(choice)
+    if choice == 1:
+        print ("Starting manualDecipher...")
+        manualDecipher()
+        returnMenu()
+    elif choice == 2:
+        print ("Starting automaticDecipher...")
+        automaticDecipher()
+        returnMenu()
+    elif choice == 3:
+        print ("starting cipher")
+        cipher()
+        returnMenu()
+    elif choice == 4:
+        print ("starting decipher")
+        decipher()
+        returnMenu()       
+    elif choice == 5:
+        raise SystemExit
+    else:
+        print ("Invalid number. Try again...")
+
+
+amazingMenu()
