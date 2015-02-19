@@ -25,39 +25,48 @@ def subCipher():
     plaintext = "AS HSPLTUI BPBUSL HRAMU DHE LTIPFCT LTU CRHEE HSN THN KFBWUN RACTLRV NPDS ASLP LTU RPPOASC CRHEE IPPB LTU ZUIV XAIEL LTASC ETU NAN DHE LP RPPO DTULTUI LTUIU DHE H XAIU AS LTU XAIUWRHMU HSN ETU DHE JFALU WRUHEUN LP XASN LTHL LTUIU DHE H IUHR PSU YRHGASC HDHV HE YIACTLRV HE LTU PSU ETU THN RUXL YUTASN"
 
     subDict = {" ":" ",
-               "a":"",
-               "b":"",
-               "c":"",
-               "d":"",
-               "e":"",
-               "f":"",
-               "g":"",
-               "h":"",
-               "i":"",
-               "j":"",
-               "k":"",
-               "l":"",
-               "m":"",
-               "n":"",
-               "o":"",
-               "p":"",
-               "q":"",
-               "r":"",
-               "s":"",
-               "t":"",
-               "u":"",
-               "v":"",
-               "w":"",
-               "x":"",
-               "y":"",
-               "z":""}
+               "A":"I",
+               "B":"M",
+               "C":"G",
+               "D":"W",
+               "E":"S",
+               "F":"U",
+               "G":"Z",
+               "H":"A",
+               "I":"R",
+               "J":"Q",
+               "K":"J",
+               "L":"T",
+               "M":"C",
+               "N":"D",
+               "O":"K",
+               "P":"O",
+               "Q":"X",
+               "R":"L",
+               "S":"N",
+               "T":"H",
+               "U":"E",
+               "V":"Y",
+               "W":"P",
+               "X":"F",
+               "Y":"B",
+               "Z":"V"}
 
-    temp = {}
+    items = subDict.items()
+    From = [key for key, value in items]
+    to = [value for key, value in items]
+
+    From=''.join(From)
+    to=''.join(to)
     
-    for key,value in subDict.iteritems():
-        temp[value] = key
+    import string
+    table = string.maketrans(From, to)
 
-    for letter in plaintext:
 
-#letterFreq()
-#subCipher()
+    
+    ciphertext = string.translate(plaintext, table)
+
+    print ciphertext
+
+letterFreq()
+subCipher()    
