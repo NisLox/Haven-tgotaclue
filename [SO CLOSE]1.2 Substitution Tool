@@ -3,10 +3,9 @@ import re
 import string
 from collections import OrderedDict
 from collections import Counter
-alphabet12 = list("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ")
 d = enchant.Dict("en_us")
 letters12 = ["e, t, a, o, i, n, s, h, r, d, l, c, u, m, w, f, g, y, p, b, v, k, j, x, q, z"]
-let = ["e, t, a, o, i, n"]
+let = ["e", "t", "a", "o", "i", "n"]
 line = "-----------------------------------------------------------"
 
 def returnMenu():
@@ -24,33 +23,24 @@ def returnMenu():
 
 def cipher():
     
-    message = raw_input("Please write the message you wish to encipher: ")
-    message1 = input("how much do you want to shift it by? ")
+    hehe = raw_input("Please enter the cipher message: ")
+    haha = input("How many do you want to shift it by? ")
+    key = string.ascii_letters
+    rotation = haha
+    tab = string.maketrans(key,key[rotation:]+key[:rotation])
+    yes = hehe.translate(tab)
+    print yes
 
-    cipher = ""
-   
-    alphabet = string.ascii_lowercase
-
-    for a in message:
-
-        cipher = cipher + alphabet12[((alphabet12.index(a) + message1) % 26)]
-
-    print cipher
 
 def decipher():
     
-    message = raw_input("Please write the message you wish to decipher: ")
-    message1 = input("how much do you want to shift it back by? ")
-
-    cipher = ""
-   
-    alphabet = string.ascii_lowercase
-
-    for a in message:
-
-        cipher = cipher + alphabet12[((alphabet12.index(a) + 26 - message1) % 26)]
-
-    print cipher 
+    hehe = raw_input("Enter string")
+    haha = input("enter number")
+    key = string.ascii_letters
+    rotation = 0-haha
+    tab = string.maketrans(key,key[rotation:]+key[:rotation])
+    yes = hehe.translate(tab)
+    print yes
 
 """def manualDecipher():
     print line
@@ -99,7 +89,7 @@ def automaticDecipher():
         new = new.replace(s[i], u) #replaces old chars with new chars
         print input, " -- ", new
         print line
-    return new
+
 
     b = Counter(new) #Counts how many of each char there is in NEW
     print b
@@ -124,16 +114,29 @@ def automaticDecipher():
     redo = space.split() #puts it into list
     print redo
 
-"""mystring = new #Trying to automate letter swaps
-print mystring
+    mystring = new #Trying to automate letter swaps
+    print mystring
 
-for word in redo:
-    index = redo.index(word)
+    idx = 0
+    print "*"*5
+    print redo
+    print let
+    
+    while idx < len(redo):
+        print idx
+        
+        if idx > len(let):
+            print "OUT OF POPULAR LETTERS"
+            break
+        
+        mystring = mystring.replace(redo[idx], let[idx])
+        print mystring
+        idx += 1
 
-    mystring = mystring.replace(redo[index], let[index])
+    print mystring
 
-print mystring
-"""
+    return new
+
 
 def amazingMenu():
     
@@ -162,11 +165,11 @@ def amazingMenu():
         automaticDecipher()
         returnMenu()
     elif choice == 3:
-        print ("starting cipher")
+        print ("starting cipher...")
         cipher()
         returnMenu()
     elif choice == 4:
-        print ("starting decipher")
+        print ("starting decipher...")
         decipher()
         returnMenu()       
     elif choice == 5:
