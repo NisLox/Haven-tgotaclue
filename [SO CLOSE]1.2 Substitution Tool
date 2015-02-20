@@ -3,11 +3,10 @@ import re
 import string
 from collections import OrderedDict
 from collections import Counter
-
+alphabet12 = list("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ")
 d = enchant.Dict("en_us")
-letters = ["e, t, a, o, i, n, s, h, r, d, l, c, u, m, w, f, g, y, p, b, v, k, j, x, q, z"]
+letters12 = ["e, t, a, o, i, n, s, h, r, d, l, c, u, m, w, f, g, y, p, b, v, k, j, x, q, z"]
 let = ["e, t, a, o, i, n"]
-
 line = "-----------------------------------------------------------"
 
 def returnMenu():
@@ -29,27 +28,27 @@ def cipher():
     message1 = input("how much do you want to shift it by? ")
 
     cipher = ""
-#   
+   
     alphabet = string.ascii_lowercase
 
     for a in message:
 
-        cipher = cipher + alphabet[((alphabet.index(a) + message1) % 26)]
+        cipher = cipher + alphabet12[((alphabet12.index(a) + message1) % 26)]
 
     print cipher
-    
+
 def decipher():
     
     message = raw_input("Please write the message you wish to decipher: ")
     message1 = input("how much do you want to shift it back by? ")
 
     cipher = ""
-#   
+   
     alphabet = string.ascii_lowercase
 
     for a in message:
 
-        cipher = cipher + alphabet[((alphabet.index(a) + 26 - message1) % 26)]
+        cipher = cipher + alphabet12[((alphabet12.index(a) + 26 - message1) % 26)]
 
     print cipher 
 
@@ -102,30 +101,28 @@ def automaticDecipher():
         print line
     return new
 
-new = automaticDecipher()
+    b = Counter(new) #Counts how many of each char there is in NEW
+    print b
+    print line
+    print new
+    wordList = re.sub("[^\w]", " ", new).split()
 
-b = Counter(new) #Counts how many of each char there is in NEW
-print b
-print line
-print new
-wordList = re.sub("[^\w]", " ", new).split()
+    for i in range(len(wordList)):#Spell Check
+        hehe = d.check(wordList[i])#Spell Check
 
-for i in range(len(wordList)):#Spell Check
-    hehe = d.check(wordList[i])#Spell Check
+    print "The spelling is: " + (str(hehe)) #Spell Check
 
-print "The spelling is: " + (str(hehe)) #Spell Check
+    makeList = list(b.elements()) #makes list of all letters used
 
-makeList = list(b.elements()) #makes list of all letters used
+    common = Counter(makeList).most_common(7) #Shows most popular letters used
 
-common = Counter(makeList).most_common(7) #Shows most popular letters used
+    trial = str(common).strip('[]') #Changes to string and removes []
+    print trial
 
-trial = str(common).strip('[]') #Changes to string and removes []
-print trial
-
-lines = re.sub("[!@ '(),' '1234567890]", '', trial) #Removes numbers and the space
-space = " ".join(lines[i:i+1] for i in range(0, len(lines), 1)) #adds space inbetween each character
-redo = space.split() #puts it into list
-print redo
+    lines = re.sub("[!@ '(),' '1234567890]", '', trial) #Removes numbers and the space
+    space = " ".join(lines[i:i+1] for i in range(0, len(lines), 1)) #adds space inbetween each character
+    redo = space.split() #puts it into list
+    print redo
 
 """mystring = new #Trying to automate letter swaps
 print mystring
