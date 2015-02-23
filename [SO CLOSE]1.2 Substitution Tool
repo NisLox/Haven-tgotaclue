@@ -42,7 +42,7 @@ def decipher():
     yes = hehe.translate(tab)
     print yes
 
-"""def manualDecipher():
+def manualDecipher():
     print line
     input = raw_input("Please input the cipher: ")#human input
     print " "
@@ -62,18 +62,18 @@ def decipher():
         print line
     return new
 
-new = manualDecipher()
+    new = manualDecipher()
 
-print "The Deciphered word is: " + new
-wordList = re.sub("[^\w]", " ", new).split()
+    print "The Deciphered word is: " + new
+    wordList = re.sub("[^\w]", " ", new).split()
 
-for i in range(len(wordList)):#Spell Check
-    hehe = d.check(wordList[i])#Spell Check
+    for i in range(len(wordList)):#Spell Check
+        hehe = d.check(wordList[i])#Spell Check
 
-print "The spelling is: " + (str(hehe)) #Spell Check
+    print "The spelling is: " + (str(hehe)) #Spell Check
 
-print line
-"""
+    print line
+
 def automaticDecipher():
     input = raw_input("Please input the cipher: ")#human input
     nondupe = "".join(OrderedDict.fromkeys(input))#removes duplicate characters
@@ -139,9 +139,6 @@ def automaticDecipher():
 
 
 def amazingMenu():
-    
-    print (""" DICKS """)
-
     print (35 * '-')
     print ("   \tM A I N - M E N U")
     print (35 * '-')
@@ -179,3 +176,4 @@ def amazingMenu():
 
 
 amazingMenu()
+
