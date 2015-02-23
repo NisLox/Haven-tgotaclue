@@ -109,7 +109,7 @@ def automaticDecipher():
     intab = lines #Intake is ciphered word with bullshit removed
     outtab = "etaoinshr" # most popular characters in english dictionary
     trantab = maketrans(intab, outtab) #swaps the ciphered chars with english dict chars
-    print let
+    print ["e","t","a","o","i","n","s","h","r","d","l","c"]
     print "Unciphered word: " + mystring.translate(trantab)#translates the string.
     print " "
     
