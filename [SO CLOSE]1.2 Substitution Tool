@@ -3,9 +3,10 @@ import re
 import string
 from collections import OrderedDict
 from collections import Counter
+from string import maketrans 
 d = enchant.Dict("en_us")
 letters12 = ["e, t, a, o, i, n, s, h, r, d, l, c, u, m, w, f, g, y, p, b, v, k, j, x, q, z"]
-let = ["e", "t", "a", "o", "i", "n"]
+let = ["e", "t", "a", "o", "i", "n", "s", "h", "r"]
 line = "-----------------------------------------------------------"
 
 def returnMenu():
@@ -87,46 +88,31 @@ def automaticDecipher():
     print b
     print line
     print new
-    wordList = re.sub("[^\w]", " ", new).split()
-
-    for i in range(len(wordList)):#Spell Check
-        hehe = d.check(wordList[i])#Spell Check
-
-    print "The spelling is: " + (str(hehe)) #Spell Check
 
     makeList = list(b.elements()) #makes list of all letters used
 
-    common = Counter(makeList).most_common(7) #Shows most popular letters used
+    common = Counter(makeList).most_common(10) #Shows most popular letters used
 
     trial = str(common).strip('[]') #Changes to string and removes []
-    print trial
 
     lines = re.sub("[!@ '(),' '1234567890]", '', trial) #Removes numbers and the space
     space = " ".join(lines[i:i+1] for i in range(0, len(lines), 1)) #adds space inbetween each character
     redo = space.split() #puts it into list
+    print " "
     print redo
+    
 
     mystring = new #Trying to automate letter swaps
-    print mystring
+    print "Ciphered word: " + mystring
+    print " "
 
-    idx = 0
-    print "*"*5
-    print redo
+    intab = lines
+    outtab = "etaoinshr"
+    trantab = maketrans(intab, outtab)
     print let
+    print "Unciphered word: " + mystring.translate(trantab)
+    print " "
     
-    while idx < len(redo):
-        print idx
-        
-        if idx > len(let):
-            print "OUT OF POPULAR LETTERS"
-            break
-        
-        mystring = mystring.replace(redo[idx], let[idx])
-        print mystring
-        idx += 1
-
-    print mystring
-
     return new
 
 
@@ -146,19 +132,19 @@ def amazingMenu():
         
     choice = int(choice)
     if choice == 1:
-        print ("Starting manualDecipher...")
+        print ("Starting manualDecipher...\n")
         manualDecipher()
         returnMenu()
     elif choice == 2:
-        print ("Starting automaticDecipher...")
+        print ("Starting automaticDecipher...\n")
         automaticDecipher()
         returnMenu()
     elif choice == 3:
-        print ("starting cipher...")
+        print ("starting cipher...\n")
         cipher()
         returnMenu()
     elif choice == 4:
-        print ("starting decipher...")
+        print ("starting decipher...\n")
         decipher()
         returnMenu()       
     elif choice == 5:
