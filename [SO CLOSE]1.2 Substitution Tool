@@ -34,8 +34,8 @@ def cipher():
 
 def decipher():
     
-    hehe = raw_input("Enter string")
-    haha = input("enter number")
+    hehe = raw_input("Please enter the cipher message: ")
+    haha = input("How many do you want to shift it by? ")
     key = string.ascii_letters
     rotation = 0-haha
     tab = string.maketrans(key,key[rotation:]+key[:rotation])
