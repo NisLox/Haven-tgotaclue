@@ -106,11 +106,11 @@ def automaticDecipher():
     print "Ciphered word: " + mystring
     print " "
 
-    intab = lines
-    outtab = "etaoinshr"
-    trantab = maketrans(intab, outtab)
+    intab = lines #Intake is ciphered word with bullshit removed
+    outtab = "etaoinshr" # most popular characters in english dictionary
+    trantab = maketrans(intab, outtab) #swaps the ciphered chars with english dict chars
     print let
-    print "Unciphered word: " + mystring.translate(trantab)
+    print "Unciphered word: " + mystring.translate(trantab)#translates the string.
     print " "
     
     return new
