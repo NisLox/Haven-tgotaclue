@@ -1,0 +1,211 @@
+import random, sys, os
+
+prime = [47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199, 211, 223, 227, 229, 233, 239, 241, 251, 257, 263, 269, 271, 277, 281, 283, 293, 307, 311, 313, 317, 331, 337, 347, 349, 353, 359, 367, 373, 379, 383, 389, 397, 401, 409, 419, 421, 431, 433, 439, 443, 449, 457, 461, 463, 467, 479, 487, 491, 499, 503, 509, 521, 523, 541]
+
+
+startup = 0
+ready = 0
+x = 0
+y = 0
+exit = 0
+control = 0
+i = 0
+seton = ''
+
+
+#key creation
+while startup in (0, 1):
+    #first prime
+    val =(random.random())
+    val = val * 100
+    while val > 74:
+        val = val / 2
+    if val < 75:
+        val = int(val)
+        if startup == 0:
+            num1 = (prime[val])
+            startup = 1
+            val = 0
+            
+            #second prime
+        if startup == 1:
+            num2 = (prime[val])
+            startup = 2
+
+
+
+
+#key creation
+
+n = num1 * num2
+
+
+
+on = (num1 -1) * (num2 -1)
+
+
+ont = 2
+
+while ready == 0:
+    
+    ont = ont + 1
+    pp = on / ont
+    if x != (pp - int(pp)):
+        ready = 1
+        
+
+ready = 0
+
+#encryption key creation
+
+
+
+ont2 = ont
+encryption = (ont, n)
+    
+
+while ready == 0:
+#decryption key creation
+    y = y + 1
+    ont3 = (ont2 * y) % on
+   
+    
+    if ont3 == 1:
+        ready = 1
+    
+print ('Success')
+
+
+print('Public Key : ', ont, n)
+print('Private Key : X, ', n)
+
+
+
+while exit == 0:
+
+    
+    control = int(input('''1. message encryption
+2. message decryption
+3. new key (can't use previous cryper text)
+4. exit
+'''))
+
+    print(control)
+
+    if control == 1:
+        
+        mess = input('''create message
+''')
+
+        for l in mess:
+            mess = ord(l)
+        
+            enmess = pow(int(mess), ont) % n
+            
+            print((enmess), end=' ')
+        print (pow(int(ord(' ')), ont) % n)
+        print ('')
+        enmess = 0
+
+    if control == 2:
+        enmess = input('''decrypt message
+''')
+
+        for l in enmess:
+            if l != '':
+                if l != ' ':
+                
+                
+                    choice = l
+                    seton = seton + choice
+            
+                if ' ' in l:                
+
+                    demess = chr(pow(int(seton), y) % n)
+                    print((demess), end='')
+                    seton = ''
+
+        print('')
+        
+    if control == 3:
+
+        startup = 0
+        ready = 0
+        x = 0
+        y = 0
+        exit = 0
+        control = 0
+        i = 0
+        seton = ''
+
+
+        #key creation
+        while startup in (0, 1):
+            #first prime
+            val =(random.random())
+            val = val * 100
+            while val > 74:
+                val = val / 2
+            if val < 75:
+                val = int(val)
+                if startup == 0:
+                    num1 = (prime[val])
+                    startup = 1
+                    val = 0
+            
+                    #second prime
+                if startup == 1:
+                    num2 = (prime[val])
+                    startup = 2
+
+
+       
+
+
+        #key creation
+
+        n = num1 * num2
+
+        on = (num1 -1) * (num2 -1)
+
+        ont = 2
+
+        while ready == 0:
+            ont = ont + 1
+            pp = on / ont
+            if x != (pp - int(pp)):
+                ready = 1
+              
+
+        ready = 0
+
+        #encryption key creation
+
+        ont2 = ont
+        encryption = (ont, n)
+    
+
+        while ready == 0:
+        #decryption key creation
+            y = y + 1
+            ont3 = (ont2 * y) % on
+          
+    
+            if ont3 == 1:
+                ready = 1
+    
+        
+
+   
+
+        print('Public Key : ', ont, n)
+        print('Private Key : X ', n)
+
+        
+            
+        #demess = chr(pow(int(enmess), y) % n)
+        #print((demess), end='')
+        #print('')
+
+    if control == 4:
+        exit = 1
