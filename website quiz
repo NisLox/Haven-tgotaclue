@@ -1,0 +1,30 @@
+----------------------------------------------------------------------------------------------------------
+level 1-Basic transposition - Reverse cipher
+
+The reverse cipher is a very simple and weak method of encryption.  Each letter is simply put in reverse order.
+In order to progress you must decrypt the following message:
+cipher text: dlo mi nehw trohs mi dna gnuoy mi nehw llat mi
+plain text: im tall when im young and im short when im old
+----------------------------------------------------------------------------------------------------------
+level 2-transposition - rail fence cipher
+
+A transposition cipher works by moving and rearraning letters.  The rail fence cipher etc etc
+[img]example image[/img]
+In order to progress you must decrypt the following message:
+cipher text: WACMS ONUNV ROSPH TOEDW BTEEG EUA
+plain text: what comes down but never goes up
+----------------------------------------------------------------------------------------------------------
+level 3-substitution - caesar cipher
+
+The caesar cipher is a substitution cipher which works by shifting
+[img]example image[/img]
+In order to progress you must decrypt the following message:
+cipher text:
+plain text:
+----------------------------------------------------------------------------------------------------------
+level 4-substituion cipher 
+
+----------------------------------------------------------------------------------------------------------
+level 5- vigenere cipher
+
+----------------------------------------------------------------------------------------------------------
