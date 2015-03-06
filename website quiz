@@ -11,8 +11,8 @@ level 2-transposition - rail fence cipher
 A transposition cipher works by moving and rearraning letters.  The rail fence cipher etc etc
 [img]example image[/img]
 In order to progress you must decrypt the following message:
-cipher text: WACMS ONUNV ROSPH TOEDW BTEEG EUA
-plain text: what comes down but never goes up
+cipher text: IYUIEEAEIILIFOGVMWTRWLDE
+plain text: If you give me water I will die
 ----------------------------------------------------------------------------------------------------------
 level 3-substitution - caesar cipher
 
