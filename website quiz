@@ -32,4 +32,10 @@ plain text:  A room with no doors or windows
 ----------------------------------------------------------------------------------------------------------
 level 5- vigenere cipher
 
+Messages are encypted using the Vigenere Square coupled with a key.
+[img]example image[/img]
+In order to progess you must decrypt the following message:
+cipher text:
+plain text:
+
 ----------------------------------------------------------------------------------------------------------
