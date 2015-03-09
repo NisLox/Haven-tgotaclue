@@ -4,7 +4,7 @@ Level 1 - Basic Transposition - Reverse Cipher
 The reverse cipher is a very simple and weak method of encryption.  Each letter is simply put in reverse order.
 In order to progress you must decrypt the following message:
 Cipher text: hguorht ees nac uoy gnihtemos
-Plain text: something you can see through
+Plain text: Something you can see through
 ----------------------------------------------------------------------------------------------------------
 Level 2 - Transposition - Rail Fence Cipher
 
@@ -35,8 +35,8 @@ Level 5 - Vigenere Cipher
 Messages are encypted using the Vigenere Square coupled with a key.
 [img]example image[/img]
 In order to progess you must decrypt the following message:
-Key: 
-Cipher text:
-Plain text:
+Key: Clue
+Cipher text: KEBEUEIFGMLSMPHFGQIVGTNGCYVIWDYH
+Plain text: It has to be broken before it can be used
 
 ----------------------------------------------------------------------------------------------------------
